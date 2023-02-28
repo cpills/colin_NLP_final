@@ -1,0 +1,8 @@
+CROSS VALIDATION:
+python3 hyperpartisan_main.py /data/semeval/training/articles-training-20180831.spacy_links.xml /data/semeval/training/ground-truth-training-20180831.xml /data/semeval/training/vocab.txt -x5 -s 25 -v 20000 -o [NAME].txt
+
+TRAINING:
+  python3 hyperpartisan_main.py /data/semeval/training/articles-training-20180831.spacy_links.xml /data/semeval/training/ground-truth-training-20180831.xml /data/semeval/training/vocab.txt -s 25 -v 20000 -t /data/semeval/validation/articles-validation-20180831.spacy_links.xml -o [NAME].txt
+
+EVALUATING:
+  python3 semeval-pan-2019-evaluator.py -d /data/semeval/validation/ground-truth-validation-20180831.xml -r [NAME].txt
